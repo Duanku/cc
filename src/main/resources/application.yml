@@ -1,0 +1,36 @@
+server:
+  port: 8084
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/cs?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+
+  #设置文件上传大小
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      file-size-threshold: -1
+      max-request-size: -1
+
+  redis:
+    host: localhost
+    database: 1 # Redis数据库索引（默认为0）
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#上传存储路径
+upPath:
+  filePath: D:/迅雷下载/
+
+dk:
+  jwt:
+    secret: f4e2e52034348f86b67cde581c0f9eb5 #a1b2c3d4e5f6g7h8i9l10k11efdcgcae
+    header: Authorization
+    expire: 1200 # AccessToken过期时间-5分钟-5*60(秒为单位)
+    refreshTokenExpireTime: 3600 # RefreshToken过期时间-30分钟-30*60(秒为单位)
+    shiroCacheExpireTime: 300
